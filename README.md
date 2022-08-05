@@ -1,4 +1,4 @@
-﻿# Bear and Breakfast - Hidden Features
+﻿# Bear and Breakfast - Sell Items
 
 This mod allows you to sell items instead of just throwing them away!
 This is just a quick and dirty way to get something back from all those lower tier items, that you crafted but no longer need.
