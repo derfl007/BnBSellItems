@@ -14,7 +14,7 @@ public class InventoryTrashSlotThrowItemPatcher {
 	public static void Postfix(InventoryItem item) {
 		if (item == null || !item.CanDeleteObject) return;
 		var purse = ServiceLocator.Resolve<Purse>();
-		purse.Delta(item.price, item.currency, $"Gained {item.price} {item.currency.ToString()} from selling {item.name}");
+		purse.Delta(item.Quantity * item.price, item.currency, $"Gained {item.Quantity * item.price} {item.currency.ToString()} from selling {item.name}");
 	}
 }
 
@@ -31,7 +31,7 @@ public class InventoryTrashSlotRemoveItemFromSlotPatcher {
 			return;
 		}
 		var purse = ServiceLocator.Resolve<Purse>();
-		purse.Delta(-storedItem.price, storedItem.currency,
-			$"Lost {storedItem.price} {storedItem.currency.ToString()} from re-buying {storedItem.name}");
+		purse.Delta(-(storedItem.Quantity * storedItem.price), storedItem.currency,
+			$"Lost {storedItem.Quantity * storedItem.price} {storedItem.currency.ToString()} from re-buying {storedItem.name}");
 	}
 }
